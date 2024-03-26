@@ -118,5 +118,9 @@ class RestaurantController{
         this[MODEL].assignMenuToDish(menuContinental, barbacoa, pasta, helado);
     }
     
+    onload= () =>{
+        this[LOAD_RESTAURANT]();
+        
+    }
 
 }

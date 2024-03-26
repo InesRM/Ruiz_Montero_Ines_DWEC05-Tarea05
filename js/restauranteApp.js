@@ -1,11 +1,5 @@
 //Importamos el módulo RestaurantManager
-import RestaurantsManager,
-{Dish,
-Restaurant,
-Allergen,
-Menu,
-Coordinate,
-} from './restauranteModelo.js';
+import RestaurantsManager from './restauranteModelo.js';
 
 //Importamos el módulo del controlador 
 import RestaurantController from './restauranteController.js';

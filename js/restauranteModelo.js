@@ -87,7 +87,7 @@ class Category {
     this.#name = name;
     this.#description = description;
 
-    // Get y set de name
+    // Nombre
     Object.defineProperty(this, "name", {
       enumerable: true,
       get() {

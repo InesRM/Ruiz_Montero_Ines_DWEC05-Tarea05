@@ -202,14 +202,15 @@ class RestaurantView {
                                                 <div class="price d-flex flex-row align-items-center">              
                                                 </div>
                                             </div>
+                                            <h6 class="text-uppercase">Descripción</h6>
                                             <p class="about">${dish.description}</p>
                                             <div class="sizes mt-5">
-                                                <h6 class="text-uppercase">Descripcion</h6>
+                                                <h6 class="text-uppercase">Ingredientes</h6>
                                                 <p class="text-uppercase">${dish.ingredients}</p>
                                             </div>
                                             <div class="cart mt-4 align-items-center"> 
                                             <button dataserial="${dish.name}" 
-                                            class="btn btn-primary text-uppercase mr-2 px4">Pedir</button> </div>
+                                            class="btn btn-info text-uppercase mr-2 px4">Añadir</button> </div>
                                         </div>
                                     </div>
                                 </div>

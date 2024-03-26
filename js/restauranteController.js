@@ -120,7 +120,80 @@ class RestaurantController{
     
     onload= () =>{
         this[LOAD_RESTAURANT]();
+        this[VIEW].showCategories(this[MODEL].getCategories());
+        this[VIEW].showDishes(this[MODEL].getCategories()); 
+        
+      
+    }
+
+    onInit = () => {
         
     }
+
+    handleInit = () => {
+        this.onInit();
+    }
+
+    //Manejador de los detalles de los platos
+    handleShowDetailsDishes = (name) => {
+        try {
+            let dish = this[MODEL].getDish(name);
+            console.log(dish);
+            this[VIEW].showDetailsDishes(dish);
+        } catch (error) {
+            this[VIEW].showDetailsDishes(null, 'No existe este producto en la página.');
+        }
+    };
+
+
+    //Manejador de la lista de platos de las categorías
+    handleDishesCategoryList = (title) => {
+        const category = (this[MODEL].getCategory(title));
+        this[VIEW].listCategories(this[MODEL].getCategoryProducts(category),
+            category.name);
+        this[VIEW].bindShowDetailsDishes(this.handleShowDetailsDishes);
+    };
+
+    //Manejador de la lista de platos de los alergenos
+
+    handleDishesAllergenList = (title) => {
+        const allergen = (this[MODEL].getAllergen(title));
+        this[VIEW].listAllergens(this[MODEL].getAllergenProducts(allergen),
+            allergen.name);
+        this[VIEW].bindShowDetailsDishes(this.handleShowDetailsDishes);
+    };
+
+
+    //Manejador de la lista de platos de los menus
+    handleDishesMenuList = (title) => {
+        const menu = (this[MODEL].getMenu(title));
+        this[VIEW].listMenus(this[MODEL].getMenuProducts(menu),
+            menu.name);
+        this[VIEW].bindShowDetailsDishes(this.handleShowDetailsDishes);
+    };
+
+    //Manejador de la lista de restaurantes
+
+    handleRestaurantList = (title) => {
+        const restaurant = (this[MODEL].getRestaurant(title));
+        this[VIEW].listRestaurant(this[MODEL].getRestaurantsDetails(restaurant),
+            restaurant.name);
+    };
+
+    onAddCategory = () => {//Cuando se añade una categoría
+        this[VIEW].showCategoriesInMenu(this[MODEL].getCategories());
+    };
+
+    onAddAllergens = () => {
+        this[VIEW].showAllergensInMenu(this[MODEL].getAllergens());
+    };
+
+    onAddRestaurant = () => {
+        this[VIEW].showRestaurantsInMenu(this[MODEL].getRestaurants());
+    };
+
+    onAddMenus = () => {
+        this[VIEW].showMenusInMenu(this[MODEL].getMenus());
+    };
 
 }

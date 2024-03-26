@@ -7,4 +7,8 @@ Menu,
 Coordinate,
 } from './restauranteModelo.js';
 
+//Importamos el módulo del controlador 
+import RestaurantController from './restauranteController.js';
+//Importamos las vistas
+import RestaurantView from './restauranteView.js';
 

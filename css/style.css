@@ -78,16 +78,29 @@ h2 {
   margin: 10px;
 }
 #enlace {
-  /* text-decoration: none;
-  font-size: 1em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1em; */
+
   color: #4c344c;
 }
 
-/* Este será el main */
+/* Migas de pan */
+
+.breadcrumb {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 1em;
+  /* background-color: #e8d0bb; */
+  /* border: solid 3px #2f2c2f; */
+}
+.breadcrumb-item {
+  color: #4c344c;
+  font-weight: bold;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+/* main */
+
 
 main {
   background-color: #e4d9d9;

@@ -1,5 +1,6 @@
 //clase restauranteView
 
+const EXECUTE_HANDLER= Symbol("executeHandler");
 class RestaurantView {
   constructor() {
     this.main = document.getElementsByTagName("main")[0];
@@ -8,6 +9,21 @@ class RestaurantView {
     this.platos = document.querySelector(".platos");
     this.categorias = document.querySelector(".categories");
   }
+
+  [EXECUTE_HANDLER](
+    handler, 
+    event,
+    data,
+    url,
+    handlerArguments,
+    scrollElement) {
+      handler(...handlerArguments);
+      const scroll=document.querySelector(scrollElement);
+      if (scroll) scroll.scrollIntoView();
+      history.pushState(data, "", url);
+      event.preventDefault();
+
+    }
 
   //Categorias
   showCategories(categories) {
@@ -232,10 +248,10 @@ class RestaurantView {
 
   bindInit(handler) {
     document.getElementById('init').addEventListener('click', (event) => {
-        handler();
+       this[EXECUTE_HANDLER](handler, [], 'body', { action: 'init' }, '#', event);
     });
     document.getElementById('logo').addEventListener('click', (event) => {
-        handler();
+       this[EXECUTE_HANDLER](handler, [], 'body', { action: 'init' }, '#', event);;
     });
 }
 
@@ -456,6 +472,22 @@ class RestaurantView {
     }
     this.ocultarCategorias();
     this.platos.append(container);
+  }
+
+
+  modifyBreadcrumb(category){
+    let breadcrumb = document.getElementById('breadcrumb');
+		// si ya tiene un hijo , se borra para reemplazarlo por el nuevo
+		if (breadcrumb.children[1] !== undefined) {
+			breadcrumb.removeChild(breadcrumb.children[1]);
+		}
+		if (category !== null) {
+			breadcrumb.insertAdjacentHTML('beforeend', `
+			<li class="breadcrumb-item active" aria-current="page">${category}</li>
+	
+			 `);
+		}
+  
   }
 }
 

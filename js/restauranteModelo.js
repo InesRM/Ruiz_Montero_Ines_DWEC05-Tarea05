@@ -113,7 +113,7 @@ class Category {
   }
 
   toString() {
-    return "Name: " + this.#name + "\n" + "Description: " + this.#description;
+    return this.#name;
   }
 }
 
@@ -152,7 +152,7 @@ class Allergen {
   }
 
   toString() {
-    return "Name: " + this.#name + "\n" + "Description: " + this.#description;
+    return this.#name;
   }
 }
 
@@ -191,7 +191,7 @@ class Menu {
   }
 
   toString() {
-    return "Name: " + this.#name + "\n" + "Description: " + this.#description;
+    return this.#name;
   }
 }
 
@@ -244,16 +244,7 @@ class Restaurant {
   }
 
   toString() {
-    return (
-      "Name: " +
-      this.#name +
-      "\n" +
-      "Description: " +
-      this.#description +
-      "\n" +
-      "Location: " +
-      this.#location
-    );
+    return (this.#name);
   }
 }
 

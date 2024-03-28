@@ -234,6 +234,9 @@ class RestaurantController {
 
     this[VIEW].bindDishesCategoryList(this.handleDishesCategoryList);
     this[VIEW].bindDishesCategoryListInMenu(this.handleDishesCategoryList);
+
+    //Migas de pan
+    this[VIEW]. modifyBreadcrumb(null);
   };
 
   handleInit = () => {
@@ -262,6 +265,7 @@ class RestaurantController {
       category.name
     );
     this[VIEW].bindShowDetailsDishes(this.handleShowDetailsDishes);
+    this[VIEW]. modifyBreadcrumb(category);
   };
 
   //Manejador de la lista de platos de los alergenos
@@ -273,6 +277,7 @@ class RestaurantController {
       allergen.name
     );
     this[VIEW].bindShowDetailsDishes(this.handleShowDetailsDishes);
+    this[VIEW].modifyBreadcrumb(allergen);
   };
 
   //Manejador de la lista de platos de los menus
@@ -280,6 +285,7 @@ class RestaurantController {
     const menu = this[MODEL].getMenu(title);
     this[VIEW].listMenus(this[MODEL].getMenuProducts(menu), menu.name);
     this[VIEW].bindShowDetailsDishes(this.handleShowDetailsDishes);
+    this[VIEW].modifyBreadcrumb(menu);
   };
 
   //Manejador de la lista de restaurantes
@@ -289,7 +295,9 @@ class RestaurantController {
     this[VIEW].listRestaurant(
       this[MODEL].getRestaurantsDetails(restaurant),
       restaurant.name
+      
     );
+    this[VIEW].modifyBreadcrumb(restaurant);
   };
 
   onAddCategory = () => {

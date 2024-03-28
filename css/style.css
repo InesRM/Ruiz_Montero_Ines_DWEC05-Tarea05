@@ -6,6 +6,14 @@ General Zone body {
 a{
   text-decoration: none;
 }
+
+/* Indicar el tipo de separador para las migas de pan?? */
+.breadcrumb-section {
+  background-color: #e8d0bb;
+  padding: 1em;
+  text-align: center;
+  border: solid 3px #2f2c2f;
+}
 #inicio{
   text-decoration: none;
   font-size: 0.8em;
@@ -53,8 +61,15 @@ a{
 }
 
 .dropdown-menu {
-  background-color: #bebff5;
+  padding: 1em;
+  background-color: #4c344c;
 }
+.dropdown-item {
+  padding: 0.5em;
+  color: #e8d0bb;
+  text-align: center;
+}
+
 h2 {
   font-size: 2.5em;
   font-weight: bold;

@@ -230,6 +230,15 @@ class RestaurantView {
     this.platos.append(container);
   }
 
+  bindInit(handler) {
+    document.getElementById('init').addEventListener('click', (event) => {
+        handler();
+    });
+    document.getElementById('logo').addEventListener('click', (event) => {
+        handler();
+    });
+}
+
   //ocultar las categorías
 
   ocultarCategorias() {
